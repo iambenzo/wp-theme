@@ -51,7 +51,7 @@ while ( have_posts() ) : the_post();
           </ul>
         </div>
     </div>
-  </div>
+  </div>  <?php get_sidebar(); ?>
   <div class="row">
     <div class="box">
         <div class="col-lg-12">
@@ -59,7 +59,6 @@ while ( have_posts() ) : the_post();
         </div>
     </div>
   </div>
-  <?php get_sidebar(); ?>
 <?php
 endwhile;
 ?>
