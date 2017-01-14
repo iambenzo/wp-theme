@@ -1,5 +1,5 @@
 <?php
-get_header(); 
+get_header();
 while ( have_posts() ) : the_post();
 ?>
 
@@ -31,7 +31,7 @@ while ( have_posts() ) : the_post();
                   'pagelink'         => '%',
                   'echo'             => 1
                 );
-               
+
                       wp_link_pages( $defaults );
 
               ?>
@@ -55,13 +55,37 @@ while ( have_posts() ) : the_post();
   <div class="row">
     <div class="box">
         <div class="col-lg-12">
-          <?php comments_template(); ?> 
+          <?php comments_template(); ?>
         </div>
     </div>
   </div>
   <?php get_sidebar(); ?>
-</div>
 <?php
 endwhile;
-get_footer();
+?>
+
+  <div class="row">
+
+    <div class="box-clear">
+
+      <div class="col-lg-12">
+
+        <?php if ( is_active_sidebar( 'basebar' ) ) :
+
+          dynamic_sidebar( 'basebar' );
+
+        endif; ?>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<?php
+
+get_footer();
+
 ?>

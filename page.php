@@ -1,5 +1,5 @@
 <?php
-get_header(); 
+get_header();
 while ( have_posts() ) : the_post();
 ?>
 
@@ -15,10 +15,36 @@ while ( have_posts() ) : the_post();
         </div>
     </div>
   </div>
-  <?php get_sidebar(); ?>
-</div>
+  <?php
 
-<?php
-endwhile;
-get_footer();
-?>
+    get_sidebar();
+
+    endwhile;
+
+  ?>
+
+    <div class="row">
+
+      <div class="box-clear">
+
+        <div class="col-lg-12">
+
+          <?php if ( is_active_sidebar( 'basebar' ) ) :
+
+            dynamic_sidebar( 'basebar' );
+
+          endif; ?>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <?php
+
+  get_footer();
+
+  ?>

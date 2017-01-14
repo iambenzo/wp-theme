@@ -25,7 +25,7 @@ add_action('wp_footer', 'iambenzo_enqueue');
 add_action('wp_footer', 'iambenzo_custom_js');
 
 //Custom image size for slider
-add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-thumbnails' );set_post_thumbnail_size( 300, 150, array( 'center', 'center') );
 add_image_size( 'home-slider', 850, 400, true );
 
 //Menus functionality
@@ -87,53 +87,53 @@ add_action( 'admin_menu', 'iambenzo_add_admin_menu' );
 add_action( 'admin_init', 'iambenzo_settings_init' );
 
 
-function iambenzo_add_admin_menu(  ) { 
+function iambenzo_add_admin_menu(  ) {
 
 	add_submenu_page( 'themes.php', 'Theme Settings', 'Theme Settings', 'manage_options', 'iambenzo', 'iambenzo_options_page' );
 
 }
 
 
-function iambenzo_settings_init(  ) { 
+function iambenzo_settings_init(  ) {
 
 	register_setting( 'pluginPage', 'iambenzo_settings' );
 
 	add_settings_section(
-		'iambenzo_pluginPage_section', 
-		__( 'Home Page Content', 'wordpress' ), 
-		'iambenzo_settings_section_callback', 
+		'iambenzo_pluginPage_section',
+		__( 'Home Page Content', 'wordpress' ),
+		'iambenzo_settings_section_callback',
 		'pluginPage'
 	);
 
-	add_settings_field( 
-		'iambenzo_text_field_0', 
-		__( 'Heading Part 1', 'wordpress' ), 
-		'iambenzo_text_field_0_render', 
-		'pluginPage', 
-		'iambenzo_pluginPage_section' 
+	add_settings_field(
+		'iambenzo_text_field_0',
+		__( 'Heading Part 1', 'wordpress' ),
+		'iambenzo_text_field_0_render',
+		'pluginPage',
+		'iambenzo_pluginPage_section'
 	);
 
-	add_settings_field( 
-		'iambenzo_text_field_1', 
-		__( 'Heading Part 2', 'wordpress' ), 
-		'iambenzo_text_field_1_render', 
-		'pluginPage', 
-		'iambenzo_pluginPage_section' 
+	add_settings_field(
+		'iambenzo_text_field_1',
+		__( 'Heading Part 2', 'wordpress' ),
+		'iambenzo_text_field_1_render',
+		'pluginPage',
+		'iambenzo_pluginPage_section'
 	);
 
-	add_settings_field( 
-		'iambenzo_textarea_field_2', 
-		__( 'Content', 'wordpress' ), 
-		'iambenzo_textarea_field_2_render', 
-		'pluginPage', 
-		'iambenzo_pluginPage_section' 
+	add_settings_field(
+		'iambenzo_textarea_field_2',
+		__( 'Content', 'wordpress' ),
+		'iambenzo_textarea_field_2_render',
+		'pluginPage',
+		'iambenzo_pluginPage_section'
 	);
 
 
 }
 
 
-function iambenzo_text_field_0_render(  ) { 
+function iambenzo_text_field_0_render(  ) {
 
 	$options = get_option( 'iambenzo_settings' );
 	?>
@@ -143,7 +143,7 @@ function iambenzo_text_field_0_render(  ) {
 }
 
 
-function iambenzo_text_field_1_render(  ) { 
+function iambenzo_text_field_1_render(  ) {
 
 	$options = get_option( 'iambenzo_settings' );
 	?>
@@ -153,11 +153,11 @@ function iambenzo_text_field_1_render(  ) {
 }
 
 
-function iambenzo_textarea_field_2_render(  ) { 
+function iambenzo_textarea_field_2_render(  ) {
 
 	$options = get_option( 'iambenzo_settings' );
 	?>
-	<textarea cols='40' rows='5' name='iambenzo_settings[iambenzo_textarea_field_2]'> 
+	<textarea cols='40' rows='5' name='iambenzo_settings[iambenzo_textarea_field_2]'>
 		<?php echo $options['iambenzo_textarea_field_2']; ?>
  	</textarea>
 	<?php
@@ -165,26 +165,26 @@ function iambenzo_textarea_field_2_render(  ) {
 }
 
 
-function iambenzo_settings_section_callback(  ) { 
+function iambenzo_settings_section_callback(  ) {
 
 	echo __( 'Configure what displays in the white box of the home page.', 'wordpress' );
 
 }
 
 
-function iambenzo_options_page(  ) { 
+function iambenzo_options_page(  ) {
 
 	?>
 	<form action='options.php' method='post'>
-		
+
 		<h2>Theme Settings</h2>
-		
+
 		<?php
 		settings_fields( 'pluginPage' );
 		do_settings_sections( 'pluginPage' );
 		submit_button();
 		?>
-		
+
 	</form>
 	<?php
 

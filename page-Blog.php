@@ -22,7 +22,7 @@ get_header();
                  - <?php the_date();?>
             </h2>
             <hr>
-            <?php 
+            <?php
               if ( has_post_thumbnail() ) {
                 ?>
                 <a href="<?php the_permalink(); ?>">
@@ -60,6 +60,23 @@ get_header();
     </div>
   </div>
   <?php get_sidebar(); ?>
+  <div class="row">
+
+    <div class="box-clear">
+
+      <div class="col-lg-12">
+
+        <?php if ( is_active_sidebar( 'basebar' ) ) :
+
+          dynamic_sidebar( 'basebar' );
+
+        endif; ?>
+
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
 <?php

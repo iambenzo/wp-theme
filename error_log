@@ -1,1 +1,0 @@
-[14-Dec-2015 07:53:01 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/iambenzo/public_html/wp-content/themes/iambenzo/index.php on line 5

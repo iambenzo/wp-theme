@@ -10,7 +10,7 @@
 			'ignore_sticky_posts' => true
 		) ) );
 
-      if ($c->have_posts()) :  
+      if ($c->have_posts()) :
 ?>
 <div class="row">
     <div class="box-dark">
@@ -23,14 +23,14 @@
             <?php while ( $c->have_posts() ) : $c->the_post(); ?>
               <div class="col-lg-4 text-center">
               <a href="<?php the_permalink();?>" style="color:#fff">
-                <?php 
+                <?php
                   if ( has_post_thumbnail() ) {
-                    the_post_thumbnail( 'medium', array( 'class' => 'img-responsive img-border img-center' ) );
+                    the_post_thumbnail( 'post-thumbnail', array( 'class' => 'img-responsive img-border img-center' ) );
                   } else {
                 ?>
-                <img class="img-responsive img-border img-center" src="<?php echo(get_template_directory_uri()); ?>/img/default.jpg" style="height:300px;width:300px;">
+                <img class="img-responsive img-border img-center" src="<?php echo(get_template_directory_uri()); ?>/img/default.jpg" style="height:150px;width:300px;">
                 <?php } ?>
-                <h4><?php the_title();?></h4>
+                <h5><?php the_title();?></h5>
                 </a>
                 <hr class="visible-xs">
               </div>
@@ -42,7 +42,7 @@
             <div class="row">
               <div class="col-lg-12 text-center">
                 <hr class="visible-lg visible-md visible-sm">
-                <a href="<?php echo esc_url( $category_link );?>" class="btn btn-default btn-lg">Read More</a>
+                <a href="<?php echo esc_url( $category_link );?>" class="btn btn-default">Read More</a>
               </div>
             </div>
         </div>
@@ -73,14 +73,14 @@
             <?php while ( $r->have_posts() ) : $r->the_post(); ?>
               <div class="col-lg-4 text-center">
               <a href="<?php the_permalink();?>" style="color:#fff">
-                <?php 
+                <?php
                   if ( has_post_thumbnail() ) {
                     the_post_thumbnail( 'medium', array( 'class' => 'img-responsive img-border img-center' ) );
                   } else {
                 ?>
                 <img class="img-responsive img-border img-center" src="<?php echo(get_theme_root_uri()); ?>/iambenzo/img/default.jpg" style="height:300px;width:300px;">
                 <?php } ?>
-                <h4><?php the_title();?></h4>
+                <h5><?php the_title();?></h5>
                 </a>
                 <hr class="visible-xs">
               </div>
@@ -91,23 +91,13 @@
             <div class="row">
               <div class="col-lg-12 text-center">
                 <hr class="visible-lg visible-md visible-sm">
-                <a href="<?php echo get_page_link($page->ID);?>" class="btn btn-default btn-lg">Read More</a>
+                <a href="<?php echo get_page_link($page->ID);?>" class="btn btn-default">Read More</a>
               </div>
             </div>
         </div>
     </div>
 </div>
 
-<?php endif; 
+<?php endif;
   }
-?>
-
-<div class="row">
-  <div class="box-clear">
-    <div class="col-lg-12">
-      <?php if ( is_active_sidebar( 'basebar' ) ) :
-        dynamic_sidebar( 'basebar' );
-      endif; ?>
-    </div>
-  </div>
-</div>
+?>
